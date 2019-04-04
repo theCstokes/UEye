@@ -1,0 +1,228 @@
+.UEye-Frame {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+
+    > .Status-Area {
+        position: absolute;
+        display: flex;
+        top: 0;
+        left: 0;
+        height: 90px;
+        width: @NormalNavBarWidth;
+        background-color: @DefaultAccent;
+        justify-content: space-around;
+        align-items: center;
+        z-index: 100;
+        box-shadow: 0 4px 8px 0 @DefaultAccent, 0 6px 20px 0 @DefaultAccent;
+
+        @media screen and (max-width: @ResizeThreshold) {
+            width: @SmallNavBarWidth;
+        }
+
+        > .Status-Image-Area {
+            width: 80px;
+            background-repeat: no-repeat;
+            background-position: 50%;
+            border-radius: 50%;
+
+            > .Status-Image {
+                width: 80px;
+                background-repeat: no-repeat;
+                background-position: 50%;
+                border-radius: 50%;
+            }
+        }
+
+        > .Status-Image-Area:hover {
+            opacity: 0.3;
+        }
+
+        > .Status-Title {
+            display: block;
+            color: white;
+            @media screen and (max-width: @ResizeThreshold) {
+                display: none;
+            }
+        }
+
+        > .Status-Image-Hover {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+
+            > .Status-Image-Button {
+                background-color: #4CAF50;
+                color: white;
+                font-size: 16px;
+                // width: 80px;
+                // height: 80px;
+                // border-radius: 50%;
+                text-align: center
+            }
+        }
+    }
+
+    // > .Status-Area:hover .Status-Image {
+    //     opacity: 0.3;
+    // }
+
+    // > .Status-Area:hover .Status-Image-Hover {
+    //     opacity: 1;
+    // }
+
+    > .Nav-Dock {
+        position: absolute;
+        top: 90px;
+        bottom: 0;
+        left: 0;
+        width: @NormalNavBarWidth;
+        background-color: @DefaultAccent;
+        z-index: 100;
+        box-shadow: 0 4px 8px 0 @DefaultAccent, 0 6px 20px 0 @DefaultAccent;
+
+        @media screen and (max-width: @ResizeThreshold) {
+            width: @SmallNavBarWidth;
+        }
+    }
+    .Help-Dock {
+        position: absolute;
+        display: none;
+        top: 40px;
+        bottom: 0;
+        right: 0;
+        width: @NormalHelpBarWidth;
+        // background-color: @DefaultGrey;
+        background-color: white;
+        // z-index: 100;
+        box-shadow: 0 4px 8px 0 @DefaultGrey, 0 6px 20px 0 @DefaultGrey;
+
+        @media screen and (max-width: @ResizeThreshold) {
+            width: @SmallNavBarWidth;
+        }
+    }
+    .Help-Dock.Visible {
+        display: block;
+
+        -webkit-animation: UEyeFrameStageRightIn 0.5s;
+        animation: UEyeFrameStageRightIn 0.5s;
+    }
+
+    .Help-Dock.Hidden-Dock {
+        // display: none;
+
+        -webkit-animation: UEyeFrameStageRightOut 0.5s;
+        animation: UEyeFrameStageRightOut 0.5s;
+    }
+
+    // > .Global-Dock {
+    //     position: absolute;
+    //     top: 0;
+    //     left: @NormalNavBarWidth;
+    //     right: 0;
+    //     height: 40px;   
+
+    //     @media screen and (max-width: @ResizeThreshold) {
+    //         left: @SmallNavBarWidth;
+    //     }
+    // }
+
+    > .Context-Dock {
+        position: absolute;
+        top: 0px;
+        left: @NormalNavBarWidth;
+        right: 0;
+        height: 40px;
+        // background-color: @DefaultAccent;
+
+        z-index: 100;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+        @media screen and (max-width: @ResizeThreshold) {
+            left: @SmallNavBarWidth;
+        }
+    }
+    // > .Context-Dock.Show-Help-Dock {
+    //     right: @NormalHelpBarWidth;
+
+    //     @media screen and (max-width: @ResizeThreshold) {
+    //         right: @SmallNavBarWidth;
+    //     }
+    // }
+
+    > .Content {
+        position: absolute;
+        top: 40px;
+        bottom: 0;
+        right: 0;
+        left: @NormalNavBarWidth;
+        background: @BackSpace;
+
+        @media screen and (max-width: @ResizeThreshold) {
+            left: @SmallNavBarWidth;
+        }
+    }
+    > .Content.Show-Help-Dock {
+        right: @NormalHelpBarWidth;
+
+        @media screen and (max-width: @ResizeThreshold) {
+            right: @SmallNavBarWidth;
+        }
+
+        -webkit-animation: UEyeFrameContentStageRightIn 0.5s;
+        animation: UEyeFrameContentStageRightIn 0.5s;
+    }
+
+    > .Content.Hidden-Help-Dock {
+        -webkit-animation: UEyeFrameContentStageRightOut 0.5s;
+        animation: UEyeFrameContentStageRightOut 0.5s;
+    }
+}
+
+@-webkit-keyframes UEyeFrameStageRightIn {
+	from {right: -300px; opacity: 0;} 
+	to {right: 0; opacity: 1;}
+}
+
+@keyframes UEyeFrameStageRightIn {
+	from {right: -300px; opacity: 0;}
+	to {right: 0; opacity: 1;}
+}
+
+@-webkit-keyframes UEyeFrameStageRightOut {
+	from {right: 0; opacity: 1;} 
+	to {right: -300px; opacity: 0;}
+}
+
+@keyframes UEyeFrameStageRightOut {
+	from {right: 0; opacity: 1;}
+	to {right: -300px; opacity: 0;}
+}
+
+@-webkit-keyframes UEyeFrameContentStageRightIn {
+	from {right: 0; opacity: 0;} 
+	to {right: 300px; opacity: 1;}
+}
+
+@keyframes UEyeFrameContentStageRightIn {
+	from {right: 0; opacity: 0;}
+	to {right: 300px; opacity: 1;}
+}
+
+@-webkit-keyframes UEyeFrameContentStageRightOut {
+	from {right: 300px; opacity: 1;} 
+	to {right: 0; opacity: 0;}
+}
+
+@keyframes UEyeFrameContentStageRightOut {
+	from {right: 300px; opacity: 1;}
+	to {right: 0; opacity: 0;}
+}

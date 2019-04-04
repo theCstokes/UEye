@@ -1,0 +1,39 @@
+.UEye-Dialog {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+	// background-color: @BackgroundLogin;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	> .Content {
+		width: 40%;
+		height: 50%;
+		position: absolute;
+		background: @Background;
+		border-radius: 15px;
+		background-color: white;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		margin: 0 5px 5px 5px;
+		padding: 10px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		padding: 20px;
+	}
+}
+
+.UEye-Dialog > .Content.Small {
+	width: 20%;
+	height: 10%;
+}
+
+.UEye-Dialog > .Content.Normal {
+	width: 40%;
+	height: 50%;
+}

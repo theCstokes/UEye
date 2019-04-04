@@ -1,0 +1,33 @@
+.Data-List-Item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+    margin: 10px;
+    >.Content {
+        display: flex;
+        justify-content: flex-start;
+        >.Type-Icon {
+            margin-right: 5px;
+        }
+        // >.Name:hover{
+        //     // color: #286090;
+        //     color: @DefaultElementAccent;
+        //     text-decoration: underline;
+        //     cursor: pointer;
+        // }
+        
+    }
+}
+
+.Data-List-Item.Current-User {
+    background-color: @DefaultElementAccent;
+}
+
+.Data-List-Item.Other-User {
+    background-color: @DefaultGrey;
+}
