@@ -1,14 +1,14 @@
-This is the web UI
+This project aims at providing a fast and easy to use framework for building elegant cross platform applications.
 
 
-run: 
+## How to Build: 
 	npm install
 	npm install -g gulp
 	gulp
 
 
-To connect from external computer run:
+## Connect From External Host:
 	npm install -g iisexpress-proxy
 	iisexpress-proxy 63202 to 81
 
-assuming 63202 is the port you iss server is on.
+This is assuming 63202 is the port you iss server is on.
